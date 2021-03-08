@@ -48,7 +48,7 @@ export default {
                 content: this.content
             }
 
-            this.$store.commit('CREATE_PAGE', page)
+            this.$store.dispatch('createPage', page)
         }
     }
 }

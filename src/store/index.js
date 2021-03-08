@@ -10,13 +10,20 @@ export default createStore({
       state.posts.push(payload)
     },
 
-    /*DELETE_PAGE(state, page) {
-      state.posts.splice(state.posts.indexOf(post), 1)
-    }*/
+    DELETE_PAGE(state, index) {
+      state.posts.splice(index, 1)
+    }
   },
 
   actions: {
-    
+    createPage(context, page) {
+      context.commit('CREATE_PAGE', page)
+    },
+
+    deletePage(context, page) {
+      context.commit('DELETE_PAGE', page)
+    },
+
   },
   
   modules: {

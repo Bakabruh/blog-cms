@@ -12,7 +12,7 @@
             <p>{{ post.content }}</p>
         </div>
         <span style="cursor: pointer;"><i class="fas fa-edit fa-2x"></i></span>
-        <span @click="deletePage(post)" style="color: rgb(134, 20, 20); cursor: pointer;"><i class="fas fa-times fa-3x"></i></span>
+        <span @click="deletePage(posts.indexOf(post))" style="color: rgb(134, 20, 20); cursor: pointer;"><i class="fas fa-times fa-3x"></i></span>
     </div>
 </template>
 
@@ -28,9 +28,9 @@ export default {
     },
 
     methods: {
-        /*deletePage(page) {
-            this.$store.commit('DELETE_PAGE', page)
-        }*/
+        deletePage(index) {
+            this.$store.dispatch('deletePage', index)
+        }
     }
 }
 </script>
