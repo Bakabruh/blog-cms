@@ -17,16 +17,12 @@
 </template>
 
 <script>
-
 import { mapState } from 'vuex'
-
 export default {
     name: 'Page',
-
     computed: {
         ...mapState(["posts"])
     },
-
     methods: {
         /*deletePage(page) {
             this.$store.commit('DELETE_PAGE', page)
@@ -36,7 +32,6 @@ export default {
 </script>
 
 <style scoped>
-
     .page {
         width: 70%;
         min-height: 20vh;
@@ -47,26 +42,21 @@ export default {
         align-items: center;
         margin: 20px 0;
     }
-
     .page .main {
         display: flex;
         flex-direction: column;
     }
-
     .page .main p {
         padding: 0 20px;
     }
-
     .page span {
         margin: 0 10px;
     }
-
     .upper {
         width: 100%;
         display: flex;
         justify-content: flex-end;
     }
-
     .upper button {
         margin-right: 250px;
         padding: 10px;
@@ -76,12 +66,10 @@ export default {
         cursor: pointer;
         border-radius: 50px;
     }
-
     .upper button:hover {
         background-color: peachpuff;
         transition: 0.2s;
         color: white;
         border-color: white;
     }
-
 </style>
