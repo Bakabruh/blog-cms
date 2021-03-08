@@ -11,8 +11,11 @@
             <h2>{{ post.metaDescription }}</h2>
             <p>{{ post.content }}</p>
         </div>
-        <span style="cursor: pointer;"><i class="fas fa-edit fa-2x"></i></span>
+        <router-link :to="'/admin/' + posts.indexOf(post)"><span style="cursor: pointer;"><i class="fas fa-edit fa-2x"></i></span></router-link>
         <span @click="deletePage(posts.indexOf(post))" style="color: rgb(134, 20, 20); cursor: pointer;"><i class="fas fa-times fa-3x"></i></span>
+        <div v-if="$route.params.id == posts.indexOf(post)">
+            <router-view v-bind:post="post"></router-view>
+        </div>
     </div>
 </template>
 

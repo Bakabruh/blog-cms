@@ -3,6 +3,7 @@ import Home from '../views/Home.vue'
 import Admin from '../views/Admin.vue'
 import Blog from '../views/Blog.vue'
 import CreatePage from '../components/CreatePage.vue'
+import EditPage from '../components/EditPage'
 
 const routes = [
   {
@@ -14,7 +15,14 @@ const routes = [
   {
     path: '/admin',
     name: 'Admin',
-    component: Admin
+    component: Admin,
+
+    children: [{
+      props: true,
+      path: '/admin/:id',
+      name: 'EditPage',
+      component: EditPage
+    }]
   },
 
   {
