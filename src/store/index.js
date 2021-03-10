@@ -2,7 +2,12 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
-    posts: []
+    posts: [],
+
+    user: {
+      email: "chewie.louveau@gmail.com",
+      password: "motdepasse"
+    }
   },
 
   mutations: {
@@ -12,7 +17,8 @@ export default createStore({
 
     DELETE_PAGE(state, index) {
       state.posts.splice(index, 1)
-    }
+    },
+
   },
 
   actions: {

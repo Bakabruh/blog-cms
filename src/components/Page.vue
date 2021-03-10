@@ -7,8 +7,6 @@
         <img :src="post.imgUrl" alt="Page">
         <div class="main">
             <h1>{{ post.title }}</h1>
-            <h2>{{ post.metaTitle }}</h2>
-            <h2>{{ post.metaDescription }}</h2>
             <p>{{ post.content }}</p>
         </div>
         <router-link :to="'/admin/' + posts.indexOf(post)"><span style="cursor: pointer;"><i class="fas fa-edit fa-2x"></i></span></router-link>
