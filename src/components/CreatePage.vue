@@ -15,8 +15,10 @@
         <label for="content">Contenu du post</label>
         <textarea id="content" v-model="content" name="content"></textarea>
 
-        <router-link to="/admin"><button @click="createPage">Create a page</button></router-link>
+        <button @click="createPage">Create a page</button>
+        <router-link to="/admin">Back to the admin panel</router-link>
     </div>
+
 </template>
 
 <script>

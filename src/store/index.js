@@ -6,7 +6,7 @@ export default createStore({
 
     user: {
       email: "chewie.louveau@gmail.com",
-      password: "motdepasse"
+      password: "password"
     }
   },
 
@@ -29,6 +29,13 @@ export default createStore({
     deletePage(context, page) {
       context.commit('DELETE_PAGE', page)
     },
+
+    editPage(context, page) {
+      context.commit('EDIT_PAGE', page)
+    }
+
+    /*LOGIN() {
+    }*/
 
   },
   

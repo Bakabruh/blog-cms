@@ -20,8 +20,38 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
     name: 'EditPage',
+
+    data() {
+        return {
+            title: null,
+            imgUrl: null,
+            metaTitle: null,
+            metaDescription: null,
+            content: null
+        }
+    },
+
+    computed: {
+        ...mapState(['posts'])
+    },
+
+    methods: {
+        editPage() {
+            let page = {
+                title: this.title,
+                imgUrl: this.imgUrl,
+                metaTitle: this.metaTitle,
+                metaDescription: this.metaDescription,
+                content: this.content
+            }
+
+            this.$store.state.posts.post = page
+        }
+    }
 
 }
 </script>

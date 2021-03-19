@@ -21,40 +21,21 @@ export default {
 
     data() {
         return {
-            user: {
-                email: "chewie.louveau@gmail.com",
-                password: "password"
-            }
+            email: "",
+            password: ""
         }
     },
 
     computed: {
-        ...mapState['user']
+        ...mapState(['user'])
     },
 
     methods: {
         login() {
-            let email = document.getElementById('email')
-            let password = document.getElementById('password')
-
-            if(email.value != null && password.value != null) {
-                if(email.value == this.user.email && password.value == this.user.password) {
-                    let newDiv = document.createElement('div')
-                    newDiv.textContent = "You are now connected !"
-                    newDiv.style.color = "green"
-                    console.log('You are now connected !')
-                } else {
-                    let newDiv = document.createElement('div')
-                    newDiv.textContent = "You can't connect because you're password is incorrect !"
-                    newDiv.style.color = "red"
-                    console.log('You can\'t connect because you\'re password is incorrect !')
-                }
-            } else {
-                let newDiv = document.createElement('div')
-                newDiv.textContent = "Please, fill in all fields !"
-                newDiv.style.color = "red"
-            }
-      
+            this.$store.dispatch("LOGIN", {
+                email: this.email,
+                password: this.password
+            })
         }
     }
 }
