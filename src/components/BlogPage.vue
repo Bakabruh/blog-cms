@@ -1,10 +1,14 @@
 <template>
+    <!-- Affichage des pages grâce à un v-for -->
     <div class="blog-page" v-for="post in posts" :key="post.title">
-        <div>
+        <div v-if="$route.params.id == null">
             <h1>{{ post.title }}</h1>
             <span>{{ date }}</span>
+            <router-link :to="'/blog/' + posts.indexOf(post)"><button>View the page</button></router-link>
         </div>
-        <p>{{ post.content }}</p>
+        <div v-if="$route.params.id == posts.indexOf(post)">
+            <router-view v-bind:single="post"></router-view>
+        </div>
     </div>
 </template>
 
@@ -14,6 +18,7 @@ import { mapState } from 'vuex'
 export default {
     name: 'BlogPage',
 
+    //Données utilisées pour la date
     data() {
         return {
             month: ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"],
@@ -23,6 +28,7 @@ export default {
     computed: {
         ...mapState(['posts']),
 
+        //fonction d'affichage de la date
         date: function() {
             let today = new Date()
             let todate = today.getDate() + ' ' + `${this.month[(today.getMonth())]}` + ' ' + today.getFullYear() +  ' ' + today.getHours() + 'h' + today.getMinutes()

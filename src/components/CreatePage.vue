@@ -1,4 +1,5 @@
 <template>
+    <!-- Formulaire de création -->
     <div class="creation">
         <label for="title">Titre de la page</label>
         <input id="title" v-model="title" type="text">
@@ -26,6 +27,8 @@ import { mapState } from "vuex"
 
 export default {
     name: "CreatePage",
+
+    // Données du formulaire
     data() {
         return {
             title: "",
@@ -37,10 +40,12 @@ export default {
     },
 
     computed: {
+        //appelle les données de la variable posts dans le store
         ...mapState(['posts'])
     },
     
     methods: {
+        //methode pour créer la page
         createPage() {
             let page = {
                 title: this.title,
@@ -50,6 +55,7 @@ export default {
                 content: this.content
             }
 
+            //va chercher la fonction createPage dans le store et l'applique à la variable page
             this.$store.dispatch('createPage', page)
         }
     }

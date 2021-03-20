@@ -1,6 +1,7 @@
 import { createStore } from 'vuex'
 
 export default createStore({
+  //stockage des variables universelles
   state: {
     posts: [],
 
@@ -29,10 +30,6 @@ export default createStore({
     deletePage(context, page) {
       context.commit('DELETE_PAGE', page)
     },
-
-    editPage(context, page) {
-      context.commit('EDIT_PAGE', page)
-    }
 
     /*LOGIN() {
     }*/

@@ -5,6 +5,7 @@ import Blog from '../views/Blog'
 import Login from '../views/Login'
 import CreatePage from '../components/CreatePage.vue'
 import EditPage from '../components/EditPage'
+import SinglePage from '../components/SinglePage'
 
 const routes = [
   {
@@ -29,7 +30,14 @@ const routes = [
   {
     path: '/blog',
     name: 'Blog',
-    component: Blog
+    component: Blog,
+
+    children: [{
+      props: true,
+      path: '/blog/:id',
+      name: 'SinglePage',
+      component: SinglePage
+    }]
   },
 
   {

@@ -13,7 +13,7 @@ export default {
     name: "Blog",
     
     components: {
-        BlogPage
+        BlogPage,
     }
 }
 </script>
